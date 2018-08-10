@@ -37,14 +37,14 @@ public class TMGradientNavigationBar: NSObject {
     public func setGradientColorOnNavigationBar(bar: UINavigationBar, direction: Direction, typeName: String) {
         if let gradientColor = gradientColorWithName(name: typeName) {
             let image = generateGradientImage(direction: direction, startColor: gradientColor.startColor, endColor: gradientColor.endColor)
-            bar.setBackgroundImage(image, for: .default)
+            bar.barTintColor = UIColor(patternImage: image)
         }
     }
 
     // Method to set navigationBar gradient from UIViewController which has NavigationBar
     public func setGradientColorOnNavigationBar(bar: UINavigationBar, direction: Direction, startColor: UIColor, endColor: UIColor) {
         let image = generateGradientImage(direction: direction, startColor: startColor, endColor: endColor)
-        bar.setBackgroundImage(image, for: .default)
+        bar.barTintColor = UIColor(patternImage: image)
     }
 
     // Extract gradient color with the name specified
