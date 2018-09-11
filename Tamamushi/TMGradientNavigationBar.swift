@@ -74,7 +74,7 @@ public class TMGradientNavigationBar: NSObject {
 
         if direction == .horizontal {
             gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-            gradientLayer.endPoint = CGPoint(x: 0.3, y: 0.5)
+            gradientLayer.endPoint = CGPoint(x: 0.55, y: 0.5)
         }
 
         UIGraphicsBeginImageContext(gradientLayer.frame.size)
