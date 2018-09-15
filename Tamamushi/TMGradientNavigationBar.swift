@@ -42,8 +42,9 @@ public class TMGradientNavigationBar: NSObject {
     }
 
     // Method to set navigationBar gradient from UIViewController which has NavigationBar
-    public func setGradientColorOnNavigationBar(bar: UINavigationBar, direction: Direction, startColor: UIColor, endColor: UIColor) {
-        let image = generateGradientImage(direction: direction, startColor: startColor, endColor: endColor)
+    public func setGradientColorOnNavigationBar(bar: UINavigationBar, direction: Direction, colors: [UIColor], startPoint: CGPoint, endPoint: CGPoint) {
+
+        let image = generateGradientImage(direction: direction, startColor: colors[0], endColor: colors[1], startPoint: startPoint, endPoint: endPoint)
         bar.barTintColor = UIColor(patternImage: image)
     }
 
@@ -65,7 +66,7 @@ public class TMGradientNavigationBar: NSObject {
     }
 
     // Create UIImage with the gradient specified
-    private func generateGradientImage(direction: Direction, startColor: UIColor, endColor: UIColor) -> UIImage {
+    public func generateGradientImage(direction: Direction, startColor: UIColor, endColor: UIColor, startPoint: CGPoint, endPoint: CGPoint) -> UIImage {
         let gradientLayer = CAGradientLayer()
         let sizeLength = UIScreen.main.bounds.size.height * 2
         let navBarFrame = CGRect(x: 0, y: 0, width: sizeLength, height: 64)
@@ -73,8 +74,8 @@ public class TMGradientNavigationBar: NSObject {
         gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
 
         if direction == .horizontal {
-            gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-            gradientLayer.endPoint = CGPoint(x: 0.2, y: 0.5)
+            gradientLayer.startPoint = startPoint
+            gradientLayer.endPoint = endPoint
         }
 
         UIGraphicsBeginImageContext(gradientLayer.frame.size)
