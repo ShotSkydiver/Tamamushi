@@ -71,7 +71,7 @@ public class TMGradientNavigationBar: NSObject {
         //    gradient.frame = CGRect(x: 0, y: 0, width: UIApplication.sharedApplication().statusBarFrame.width, height: UIApplication.sharedApplication().statusBarFrame.height + self.navigationController!.navigationBar.frame.height)
 
         // let sizeLength = UIScreen.main.bounds.size.height * 2
-        let navBarFrame = CGRect(x: 0, y: 0, width: UIApplication.sharedApplication().statusBarFrame.width, height: UIApplication.sharedApplication().statusBarFrame.height + 64)
+        let navBarFrame = CGRect(x: 0, y: 0, width: UIApplication.shared.statusBarFrame.width, height: UIApplication.shared.statusBarFrame.height + 64)
         gradientLayer.frame = navBarFrame
         gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
 
