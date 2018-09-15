@@ -24,19 +24,19 @@ public class TMGradientNavigationBar: NSObject {
 
     public func setInitialBarGradientColor(direction: Direction, typeName: String) {
         if let gradientColor = gradientColorWithName(name: typeName) {
-            let image = generateGradientImage(direction: direction, startColor: gradientColor.startColor, endColor: gradientColor.endColor)
+            let image = generateGradientImage(direction: direction, startColor: gradientColor.startColor, endColor: gradientColor.endColor, startPoint: CGPoint(x:0.0,y:0.5), endPoint: CGPoint(x:0.3,y:0.5))
             setInitialImageToNavigationBar(image: image)
         }
     }
 
     public func setInitialBarGradientColor(direction: Direction, startColor: UIColor, endColor: UIColor) {
-        let image = generateGradientImage(direction: direction, startColor: startColor, endColor: endColor)
+        let image = generateGradientImage(direction: direction, startColor: startColor, endColor: endColor, startPoint: CGPoint(x:0.0,y:0.5), endPoint: CGPoint(x:0.3,y:0.5))
         setInitialImageToNavigationBar(image: image)
     }
 
     public func setGradientColorOnNavigationBar(bar: UINavigationBar, direction: Direction, typeName: String) {
         if let gradientColor = gradientColorWithName(name: typeName) {
-            let image = generateGradientImage(direction: direction, startColor: gradientColor.startColor, endColor: gradientColor.endColor)
+            let image = generateGradientImage(direction: direction, startColor: gradientColor.startColor, endColor: gradientColor.endColor, startPoint: CGPoint(x:0.0,y:0.5), endPoint: CGPoint(x:0.3,y:0.5))
             bar.barTintColor = UIColor(patternImage: image)
         }
     }
