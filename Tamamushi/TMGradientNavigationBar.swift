@@ -66,12 +66,12 @@ public class TMGradientNavigationBar: NSObject {
     }
 
     // Create UIImage with the gradient specified
-    public func generateGradientImage(direction: Direction, startColor: UIColor, endColor: UIColor, startPoint: CGPoint, endPoint: CGPoint) -> UIImage {
+    public func generateGradientImage(direction: Direction, startColor: UIColor, endColor: UIColor, startPoint: CGPoint, endPoint: CGPoint, height: Int = 64) -> UIImage {
         let gradientLayer = CAGradientLayer()
         //    gradient.frame = CGRect(x: 0, y: 0, width: UIApplication.sharedApplication().statusBarFrame.width, height: UIApplication.sharedApplication().statusBarFrame.height + self.navigationController!.navigationBar.frame.height)
 
         // let sizeLength = UIScreen.main.bounds.size.height * 2
-        let navBarFrame = CGRect(x: 0, y: 0, width: UIApplication.shared.statusBarFrame.width, height: UIApplication.shared.statusBarFrame.height + 64)
+        let navBarFrame = CGRect(x: 0, y: 0, width: UIApplication.shared.statusBarFrame.width, height: UIApplication.shared.statusBarFrame.height + height)
         gradientLayer.frame = navBarFrame
         gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
 
